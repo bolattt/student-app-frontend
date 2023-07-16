@@ -1,19 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import StudentList from "./components/studentList/StudentList";
 
 function App() {
-  console.log("<App /> rendederd");
+  const [students, setStudents] = useState([]);
+  console.log("<App /> rendederd. Num of students: " + students.length);
+
   useEffect(() => {
+    console.log("<App /> useEffect() fired");
+    const API = process.env.REACT_APP_API;
     async function fetchData() {
-      const response = await axios.get("http://localhost:8888");
-      console.log(response);
+      const response = await axios.get(`${API}/students`);
+      const data = response.data.data;
+      console.log("<App /> useEffect() fetched data");
+      setStudents(data);
     }
     fetchData();
   }, []);
+
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <h1>Student Dashboard</h1>
+      <StudentList students={students} />
     </div>
   );
 }
