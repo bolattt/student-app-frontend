@@ -20,8 +20,6 @@ export default function StudentList({ students }) {
     handleSearch();
   }, [search]);
 
-  console.log("searchREsult", searchResults);
-
   console.log("<StudentList /> rendederd");
   return (
     <div className="studentList">

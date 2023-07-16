@@ -2,8 +2,7 @@ import React from "react";
 import "./StudentCard.scss";
 export default function StudentCard({ student }) {
   console.log("<StudentCard /> rendederd");
-  const { city, company, email, firstName, lastName, grades, pic, skill } =
-    student;
+  const { company, email, firstName, lastName, grades, pic, skill } = student;
 
   function getAverageGrade(grades) {
     let total = 0;
