@@ -1,5 +1,6 @@
 import React from "react";
 import StudentCard from "../studentCard/StudentCard";
+import "./StudentList.scss";
 
 export default function StudentList({ students }) {
   console.log("<StudentList /> rendederd");

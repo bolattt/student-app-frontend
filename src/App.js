@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./App.css";
+
 import StudentList from "./components/studentList/StudentList";
+import "./App.scss";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -21,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Student Dashboard</h1>
       <StudentList students={students} />
     </div>
   );
