@@ -23,13 +23,9 @@ export default function StudentList({ students }) {
   return (
     <div className="studentList">
       <SearchBar search={search} setSearch={setSearch} />
-      {search !== ""
-        ? searchResults.map((student) => (
-            <StudentCard key={student.id} student={student} />
-          ))
-        : students.map((student) => (
-            <StudentCard key={student.id} student={student} />
-          ))}
+      {searchResults.map((student) => (
+        <StudentCard key={student.id} student={student} />
+      ))}
     </div>
   );
 }
