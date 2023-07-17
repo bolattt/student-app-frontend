@@ -8,23 +8,22 @@ export default function StudentList({ students }) {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    function handleSearch() {
-      setSearchResults(
-        students.filter(
-          (student) =>
-            student.firstName.toLowerCase().includes(search.toLowerCase()) ||
-            student.lastName.toLowerCase().includes(search.toLowerCase())
-        )
-      );
-    }
-    handleSearch();
-  }, [search]);
+    console.log("useEffect() in StudentList fired");
 
-  console.log("<StudentList /> rendederd");
+    const filteredStudents = students.filter(
+      (student) =>
+        student.firstName.toLowerCase().includes(search.toLowerCase()) ||
+        student.lastName.toLowerCase().includes(search.toLowerCase())
+    );
+
+    setSearchResults(filteredStudents);
+  }, [search, students]);
+
+  console.log("<StudentList /> rendered");
   return (
     <div className="studentList">
       <SearchBar search={search} setSearch={setSearch} />
-      {search != ""
+      {search !== ""
         ? searchResults.map((student) => (
             <StudentCard key={student.id} student={student} />
           ))
