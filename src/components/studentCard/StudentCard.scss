@@ -3,6 +3,30 @@
   display: flex;
   padding: 20px 0;
 
+  &__nameWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__toggle {
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+
+    & img {
+      filter: opacity(0.5) grayscale(100%);
+      transition: all 0.5s ease;
+
+      &:hover {
+        filter: opacity(1) grayscale(0);
+      }
+    }
+  }
+
   &__avatar {
     display: flex;
     justify-content: center;
