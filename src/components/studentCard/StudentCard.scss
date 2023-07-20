@@ -49,12 +49,42 @@
 
     & p {
       margin-left: 20px;
-      color: gray;
+      color: rgb(32, 32, 32);
     }
   }
 
   &__name {
     font-size: 2rem;
     text-transform: uppercase;
+  }
+
+  &__addTag {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin-left: 20px;
+    margin-top: 20px;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid #333;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 20px;
+    gap: 10px;
+  }
+
+  &__tag {
+    background: #bbb;
+    padding: 10px;
+    border-radius: 2px;
+    color: black;
+  }
+
+  & form {
+    margin-bottom: 10px;
   }
 }
