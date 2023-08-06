@@ -12,6 +12,7 @@ export default function useAxios(url) {
 
     const fetchData = async () => {
       try {
+        setError(null);
         setLoading(true);
         const response = await axios.get(`${API}${url}`);
         console.log("axios response", response);

@@ -5,30 +5,43 @@ import SearchTagBar from "../searchTagBar/SearchTagBar";
 import "./StudentList.scss";
 
 export default function StudentList({ students }) {
-  const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [searchTag, setSearchTag] = useState("");
 
-  useEffect(() => {
-    console.log("useEffect() in StudentList fired");
+  let dataToDisplay = students;
 
-    const filteredStudents = students.filter(
+  if (searchInput) {
+    dataToDisplay = students.filter(
       (student) =>
-        student.firstName.toLowerCase().includes(search.toLowerCase()) ||
-        student.lastName.toLowerCase().includes(search.toLowerCase())
+        student.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        student.lastName.toLowerCase().includes(searchInput.toLowerCase())
     );
+  }
 
-    setSearchResults(filteredStudents);
-  }, [search, students]);
+  if (searchTag) {
+    dataToDisplay = students.filter((student) => {
+      return student.tags.includes(searchTag);
+    });
+  }
+
+  function renderContent() {
+    if (dataToDisplay.length === 0) {
+      return `<h1>No students found for ${searchInput}</h1>`;
+    } else {
+      return dataToDisplay.map((student) => (
+        <StudentCard key={student.id} student={student} />
+      ));
+    }
+  }
 
   console.log("<StudentList /> rendered");
   return (
     <div className="studentList">
-      <SearchBar search={search} setSearch={setSearch} />
+      <SearchBar search={searchInput} setSearch={setSearchInput} />
+
       <SearchTagBar searchTag={searchTag} setSearchTag={setSearchTag} />
-      {searchResults.map((student) => (
-        <StudentCard key={student.id} student={student} />
-      ))}
+
+      {renderContent()}
     </div>
   );
 }
