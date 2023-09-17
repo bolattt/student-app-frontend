@@ -12,6 +12,7 @@ export default function useAxios(url) {
 
     const fetchData = async () => {
       try {
+        setError(null);
         setLoading(true);
         const response = await axios.get(`${API}${url}`);
         console.log("axios response", response);
@@ -22,6 +23,9 @@ export default function useAxios(url) {
         setLoading(false);
       } catch (error) {
         console.log(error);
+        if (error.response) {
+          console.log(error.response);
+        }
         setLoading(false);
         setError(error.message);
       }

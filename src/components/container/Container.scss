@@ -1,0 +1,13 @@
+.Container {
+  width: 100%;
+  max-width: 800px;
+  height: 85vh;
+  max-height: 850px;
+  border-radius: 5px;
+  background: white;
+  overflow-y: scroll;
+
+  display: grid;
+  //   grid-template-columns: 1fr;
+  // place-items: center;
+}
