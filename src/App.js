@@ -4,7 +4,11 @@ import useAxios from "./hooks/useAxios";
 import Container from "./components/container/Container";
 
 function App() {
-  const { data: students, loading, error } = useAxios("/students");
+  const {
+    data: students,
+    loading,
+    error,
+  } = useAxios("/v2/students/?include=grades");
   console.log(
     `<App /> rendederd. Loading=${loading} Error=${error} Num of students:  ${students.length}`
   );

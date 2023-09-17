@@ -13,8 +13,8 @@ export default function StudentList({ students }) {
   if (searchInput) {
     dataToDisplay = students.filter(
       (student) =>
-        student.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
-        student.lastName.toLowerCase().includes(searchInput.toLowerCase())
+        student.first_name.toLowerCase().includes(searchInput.toLowerCase()) ||
+        student.last_name.toLowerCase().includes(searchInput.toLowerCase())
     );
   }
 

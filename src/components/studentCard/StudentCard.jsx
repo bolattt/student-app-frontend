@@ -6,7 +6,7 @@ import "./StudentCard.scss";
 
 export default function StudentCard({ student }) {
   console.log("<StudentCard /> rendederd");
-  const { company, email, firstName, lastName, grades, pic, skill } = student;
+  const { company, email, first_name, last_name, grades, pic, skill } = student;
   const [showGrades, setShowGrades] = useState(false);
   const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
@@ -22,13 +22,13 @@ export default function StudentCard({ student }) {
   return (
     <div className="studentCard">
       <div className="studentCard__avatar">
-        <img className="" src={pic} alt={firstName + " " + lastName} />
+        <img className="" src={pic} alt={first_name + " " + last_name} />
       </div>
 
       <div className="studentCard__info">
         <div className="studentCard__nameWrapper">
           <h1 className="studentCard__name">
-            {firstName} {lastName}
+            {first_name} {last_name}
           </h1>
           <button
             className="studentCard__toggle"
@@ -48,7 +48,7 @@ export default function StudentCard({ student }) {
           {showGrades &&
             grades.map((grade, index) => (
               <p key={index} className="studentCard__grade">
-                Test {index + 1}: &nbsp; &nbsp; &nbsp; {grade}%
+                Test {index + 1}: &nbsp; &nbsp; &nbsp; {grade.score}%
               </p>
             ))}
         </div>
