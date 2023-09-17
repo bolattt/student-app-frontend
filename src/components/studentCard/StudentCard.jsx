@@ -3,7 +3,6 @@ import plus from "../../assets/plus-solid.svg";
 import minus from "../../assets/minus-solid.svg";
 import { getAverageGrade } from "../../helpers/helpers";
 import "./StudentCard.scss";
-import axios from "axios";
 
 export default function StudentCard({ student }) {
   console.log("<StudentCard /> rendederd");

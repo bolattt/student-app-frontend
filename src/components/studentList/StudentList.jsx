@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import StudentCard from "../studentCard/StudentCard";
 import SearchBar from "../searchBar/SearchBar";
 import SearchTagBar from "../searchTagBar/SearchTagBar";
