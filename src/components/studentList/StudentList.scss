@@ -11,3 +11,12 @@
 .studentList {
   width: 100%;
 }
+
+.studentList__content--empty {
+  // border: 1px solid red;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

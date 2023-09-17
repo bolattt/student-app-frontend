@@ -23,6 +23,9 @@ export default function useAxios(url) {
         setLoading(false);
       } catch (error) {
         console.log(error);
+        if (error.response) {
+          console.log(error.response);
+        }
         setLoading(false);
         setError(error.message);
       }

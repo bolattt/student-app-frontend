@@ -25,12 +25,23 @@ export default function StudentList({ students }) {
   }
 
   function renderContent() {
+    let contentClassname = "studentList__content";
+
     if (dataToDisplay.length === 0) {
-      return `<h1>No students found for ${searchInput}</h1>`;
+      contentClassname += " studentList__content--empty";
+      return (
+        <div className={contentClassname}>
+          <h1>No results for {searchInput}</h1>
+        </div>
+      );
     } else {
-      return dataToDisplay.map((student) => (
-        <StudentCard key={student.id} student={student} />
-      ));
+      return (
+        <div className={contentClassname}>
+          {dataToDisplay.map((student) => (
+            <StudentCard key={student.id} student={student} />
+          ))}
+        </div>
+      );
     }
   }
 
