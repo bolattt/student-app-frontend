@@ -4,10 +4,9 @@ import minus from "../../assets/minus-solid.svg";
 import { getAverageGrade } from "../../helpers/helpers";
 import "./StudentCard.scss";
 
-export default function StudentCard({ student }) {
+export default function StudentCard({ student, expanded, onClick }) {
   console.log("<StudentCard /> rendederd");
   const { company, email, first_name, last_name, grades, pic, skill } = student;
-  const [showGrades, setShowGrades] = useState(false);
   const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -30,11 +29,8 @@ export default function StudentCard({ student }) {
           <h1 className="studentCard__name">
             {first_name} {last_name}
           </h1>
-          <button
-            className="studentCard__toggle"
-            onClick={() => setShowGrades(!showGrades)}
-          >
-            <img src={showGrades ? minus : plus} alt="toggle" />
+          <button className="studentCard__toggle" onClick={onClick}>
+            <img src={expanded ? minus : plus} alt="toggle" />
           </button>
         </div>
 
@@ -45,7 +41,7 @@ export default function StudentCard({ student }) {
 
         <div className="studentCard__grades">
           <br />
-          {showGrades &&
+          {expanded &&
             grades.map((grade, index) => (
               <p key={index} className="studentCard__grade">
                 Test {index + 1}: &nbsp; &nbsp; &nbsp; {grade.score}%

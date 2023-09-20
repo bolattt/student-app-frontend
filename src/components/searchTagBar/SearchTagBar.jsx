@@ -1,5 +1,6 @@
 import React from "react";
 import "../searchBar/SearchBar.scss";
+import "./SearchTagBar.scss";
 export default function SearchTagBar({ searchTag, setSearchTag }) {
   console.log("<SearchTagBar /> rendederd");
   return (

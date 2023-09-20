@@ -1,3 +1,8 @@
 .searchTagBar {
   padding-top: 0px;
+  width: 75%;
+
+  & input {
+    width: 87%;
+  }
 }

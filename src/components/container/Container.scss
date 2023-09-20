@@ -5,9 +5,8 @@
   max-height: 850px;
   border-radius: 5px;
   background: white;
-  overflow-y: scroll;
-
+  overflow-y: hidden;
   display: grid;
-  //   grid-template-columns: 1fr;
-  // place-items: center;
+  grid-template-columns: 1fr;
+  place-items: center;
 }

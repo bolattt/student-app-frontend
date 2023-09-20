@@ -2,6 +2,8 @@ import StudentList from "./components/studentList/StudentList";
 import "./App.scss";
 import useAxios from "./hooks/useAxios";
 import Container from "./components/container/Container";
+import Loading from "./components/loading/Loading";
+import Error from "./components/error/Error";
 
 function App() {
   const {
@@ -15,9 +17,9 @@ function App() {
 
   function renderContent() {
     if (loading) {
-      return <h1>Loading...</h1>;
+      return <Loading />;
     } else if (error) {
-      return <h1>Error: {error}</h1>;
+      return <Error error={error} />;
     } else {
       return <StudentList students={students} />;
     }

@@ -7,6 +7,7 @@ import "./StudentList.scss";
 export default function StudentList({ students }) {
   const [searchInput, setSearchInput] = useState("");
   const [searchTag, setSearchTag] = useState("");
+  const [expanded, setExpanded] = useState([]);
 
   let dataToDisplay = students;
 
@@ -24,6 +25,22 @@ export default function StudentList({ students }) {
     });
   }
 
+  function handleExpandAll() {
+    setExpanded(students.map((student) => student.id));
+  }
+
+  function handleCollapseAll() {
+    setExpanded([]);
+  }
+
+  function handleToggleExpanded(id) {
+    if (expanded.includes(id)) {
+      setExpanded(expanded.filter((studentId) => studentId !== id));
+    } else {
+      setExpanded([...expanded, id]);
+    }
+  }
+
   function renderContent() {
     let contentClassname = "studentList__content";
 
@@ -38,7 +55,12 @@ export default function StudentList({ students }) {
       return (
         <div className={contentClassname}>
           {dataToDisplay.map((student) => (
-            <StudentCard key={student.id} student={student} />
+            <StudentCard
+              key={student.id}
+              student={student}
+              expanded={expanded.includes(student.id)}
+              onClick={() => handleToggleExpanded(student.id)}
+            />
           ))}
         </div>
       );
@@ -48,10 +70,13 @@ export default function StudentList({ students }) {
   console.log("<StudentList /> rendered");
   return (
     <div className="studentList">
-      <SearchBar search={searchInput} setSearch={setSearchInput} />
+      <div className="studentList__controls">
+        <SearchBar search={searchInput} setSearch={setSearchInput} />
+        <button onClick={handleExpandAll}>Expand All</button>
+        <button onClick={handleCollapseAll}>Collapse All</button>
+      </div>
 
       <SearchTagBar searchTag={searchTag} setSearchTag={setSearchTag} />
-
       {renderContent()}
     </div>
   );

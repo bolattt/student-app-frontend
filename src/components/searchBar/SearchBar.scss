@@ -1,12 +1,12 @@
 .searchBar {
   padding: 10px;
-
+  padding-bottom: 0;
   & input {
     width: 100%;
-    border: none;
-    border-bottom: 1px solid #ddd;
     height: 45px;
+    border: none;
     outline: none;
+    border-bottom: 1px solid #ddd;
     font-size: 1.3rem;
 
     &:focus {
